@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      /* --bg: #0a0a0a; */
+      /* --bg: #818faa; */
+      --bg: rgba(52, 81, 122, 0.92);
+      --surface: #111111;
+      --surface2: #1a1a1a;
+      --border: #2a2a2a;
+      --accent: #c8a96e;
+      --accent2: #7eb8a4;
+      --text: #e8e4dc;
+      --muted: #777;
+      --radius: 4px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Mono', monospace;
+      font-size: 14px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      /* background: rgba(10,10,10,0.92); */
+      /* background: rgba(76, 117, 175, 0.92); */
+      background: rgba(19, 30, 46, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 60px;
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
+    .nav-links li button {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .nav-links li button:hover,
+    .nav-links li button.active {
+      color: var(--accent);
+      background: rgba(200,169,110,0.08);
+    }
+
+    .nav-links li button.active {
+      border-bottom: 2px solid var(--accent);
+    }
+
+    /* ── TABS ── */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeUp 0.4s ease; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 2.5rem;
+      color: var(--text);
+    }
+
+    .divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      margin-bottom: 2.5rem;
+    }
+
+    /* ── HOME ── */
+    .home-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      min-height: calc(100vh - 60px);
+      padding: 0 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .home-text .greeting {
+      font-size: 12px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .home-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      margin-bottom: 1rem;
+    }
+
+    .home-text h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .home-text .tagline {
+      font-size: 15px;
+      color: var(--muted);
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border: 1px solid;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0a0a0a;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover { background: #dbc086; }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .home-photo {
+      position: relative;
+    }
+
+    .photo-frame {
+      aspect-ratio: 4/5;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 4px,
+        rgba(200,169,110,0.03) 4px,
+        rgba(200,169,110,0.03) 5px
+      );
+    }
+
+    .photo-placeholder {
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .photo-placeholder svg {
+      width: 64px;
+      height: 64px;
+      stroke: var(--border);
+      margin-bottom: 1rem;
+    }
+
+    .photo-placeholder p {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+    }
+
+    .photo-accent-box {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 60%;
+      height: 40%;
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: 2px;
+      z-index: -1;
+    }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.2s, transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 0;
+      background: var(--accent);
+      transition: height 0.3s ease;
+    }
+
+    .card:hover { border-color: var(--border); transform: translateY(-2px); }
+    .card:hover::before { height: 100%; }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 0.8rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--text);
+    }
+
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .card-date {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .card-body {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 2px;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      margin: 0.3rem 0.3rem 0 0;
+    }
+
+    /* ── BLOG ── */
+    .blog-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .blog-card:hover { border-color: var(--accent2); transform: translateX(4px); }
+
+    .blog-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-meta span {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .blog-meta .cat {
+      color: var(--accent2);
+    }
+
+    .blog-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .blog-excerpt {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 1rem;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      cursor: pointer;
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+
+    .project-banner {
+      height: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+    }
+
+    .project-body { padding: 1.8rem; }
+
+    .project-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .project-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    .project-link svg {
+      width: 13px;
+      height: 13px;
+      stroke: currentColor;
+      fill: none;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+
+    .skill-pill {
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      color: var(--text);
+      background: var(--surface2);
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .skill-pill:hover { border-color: var(--accent2); color: var(--accent2); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .home-grid { grid-template-columns: 1fr; min-height: auto; padding: 3rem 1.5rem; gap: 3rem; }
+      .home-photo { order: -1; max-width: 280px; margin: 0 auto; }
+      .projects-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 1rem; }
+      .section { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Your Name</div>
+  <ul class="nav-links">
+    <li><button class="active" onclick="switchTab('home', this)">Home</button></li>
+    <li><button onclick="switchTab('education', this)">Education</button></li>
+    <li><button onclick="switchTab('experience', this)">Experience</button></li>
+    <li><button onclick="switchTab('projects', this)">Projects</button></li>
+    <li><button onclick="switchTab('blog', this)">Blog</button></li>
+  </ul>
+</nav>
+
+<!-- ═══════════════ HOME ═══════════════ -->
+<div id="home" class="tab-content active">
+  <div class="home-grid">
+    <div class="home-text">
+      <p class="greeting">Hello, world —</p>
+      <h1>I'm <em>Your<br>Name</em> Here</h1>
+      <p class="tagline">
+        Software engineer, creative thinker, and lifelong learner. I build things for the web and occasionally break them in interesting ways.
+      </p>
+      <div class="btn-group">
+        <a href="#" class="btn btn-primary" onclick="switchTab('projects', document.querySelectorAll('.nav-links button')[3]); return false;">
+          View Projects
+        </a>
+        <a href="mailto:you@email.com" class="btn btn-outline">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="home-photo">
+      <div class="photo-frame">
+        <!-- Replace the div below with an <img src="your-photo.jpg" alt="Your Name" style="width:100%;height:100%;object-fit:cover"> -->
+        Replace the div below with an <img src="images/profile.jpeg" alt="Your Name" style="width:100%;height:100%;object-fit:cover">
+        <!-- <div class="photo-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <p>Your Photo Here</p> -->
+        </div>
+      </div>
+      <div class="photo-accent-box"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ EDUCATION ═══════════════ -->
+<div id="education" class="tab-content">
+  <div class="section">
+    <p class="section-label">Academic Background</p>
+    <h2 class="section-title">Education</h2>
+    <div class="divider"></div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">B.S. Computer Science</div>
+          <div class="card-subtitle">University Name</div>
+        </div>
+        <div class="card-date">2020 — 2024</div>
+      </div>
+      <div class="card-body">
+        Relevant coursework: Data Structures & Algorithms, Operating Systems, Machine Learning, Distributed Systems, and Software Engineering. GPA: 3.8 / 4.0.
+      </div>
+      <div>
+        <span class="tag">Dean's List</span>
+        <span class="tag">Honors</span>
+        <span class="tag">Research Assistant</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">High School Diploma</div>
+          <div class="card-subtitle">High School Name</div>
+        </div>
+        <div class="card-date">2016 — 2020</div>
+      </div>
+      <div class="card-body">
+        Graduated valedictorian. Active in robotics club, math olympiad, and computer science electives.
+      </div>
+      <div>
+        <span class="tag">Valedictorian</span>
+        <span class="tag">Robotics Club</span>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; margin: 3rem 0 1.2rem; color:var(--text)">Certifications & Courses</h3>
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">AWS Certified Developer</div>
+          <div class="card-subtitle">Amazon Web Services</div>
+        </div>
+        <div class="card-date">2023</div>
+      </div>
+      <div class="card-body">Associate-level certification covering cloud architecture, deployment, and best practices.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ EXPERIENCE ═══════════════ -->
+<div id="experience" class="tab-content">
+  <div class="section">
+    <p class="section-label">Professional Journey</p>
+    <h2 class="section-title">Work Experience</h2>
+    <div class="divider"></div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Software Engineer</div>
+          <div class="card-subtitle">Company Name</div>
+        </div>
+        <div class="card-date">Jan 2024 — Present</div>
+      </div>
+      <div class="card-body">
+        Built and maintained microservices handling 5M+ daily requests. Led migration from monolith to event-driven architecture, reducing latency by 40%. Mentored two junior engineers and contributed to internal developer tooling.
+      </div>
+      <div>
+        <span class="tag">React</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">AWS</span>
+        <span class="tag">PostgreSQL</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Software Engineering Intern</div>
+          <div class="card-subtitle">Another Company</div>
+        </div>
+        <div class="card-date">May 2023 — Aug 2023</div>
+      </div>
+      <div class="card-body">
+        Developed a real-time notification system using WebSockets. Improved test coverage from 42% to 78%. Participated in daily standups and sprint planning under Agile methodology.
+      </div>
+      <div>
+        <span class="tag">Python</span>
+        <span class="tag">Django</span>
+        <span class="tag">Redis</span>
+        <span class="tag">Docker</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">Undergraduate Research Assistant</div>
+          <div class="card-subtitle">University Lab</div>
+        </div>
+        <div class="card-date">Sep 2022 — Apr 2023</div>
+      </div>
+      <div class="card-body">
+        Researched natural language processing techniques for clinical text. Co-authored a paper submitted to ACL 2023. Built data pipelines to process 200k+ medical records.
+      </div>
+      <div>
+        <span class="tag">Python</span>
+        <span class="tag">PyTorch</span>
+        <span class="tag">NLP</span>
+        <span class="tag">Research</span>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; margin: 3rem 0 1.2rem; color:var(--text)">Skills</h3>
+    <div class="skills-grid">
+      <span class="skill-pill">JavaScript</span>
+      <span class="skill-pill">TypeScript</span>
+      <span class="skill-pill">Python</span>
+      <span class="skill-pill">React</span>
+      <span class="skill-pill">Node.js</span>
+      <span class="skill-pill">GraphQL</span>
+      <span class="skill-pill">PostgreSQL</span>
+      <span class="skill-pill">Docker</span>
+      <span class="skill-pill">Kubernetes</span>
+      <span class="skill-pill">AWS</span>
+      <span class="skill-pill">Git</span>
+      <span class="skill-pill">CI/CD</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ PROJECTS ═══════════════ -->
+<div id="projects" class="tab-content">
+  <div class="section">
+    <p class="section-label">What I've Built</p>
+    <h2 class="section-title">Projects</h2>
+    <div class="divider"></div>
+
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-banner"></div>
+        <div class="project-body">
+          <div class="project-title">Project Alpha</div>
+          <p class="project-desc">A full-stack web application for collaborative task management with real-time sync, drag-and-drop boards, and team analytics dashboard.</p>
+          <div>
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Socket.io</span>
+          </div>
+          <div class="project-links" style="margin-top:1.2rem">
+            <a href="https://github.com/yourusername/project-alpha" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              GitHub
+            </a>
+            <a href="https://project-alpha.demo.com" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-banner" style="background: linear-gradient(90deg, var(--accent2), #4a8a9e)"></div>
+        <div class="project-body">
+          <div class="project-title">ML Pipeline CLI</div>
+          <p class="project-desc">Command-line tool for automating machine learning pipelines — data ingestion, preprocessing, training, evaluation, and model export with one command.</p>
+          <div>
+            <span class="tag">Python</span>
+            <span class="tag">PyTorch</span>
+            <span class="tag">Click</span>
+          </div>
+          <div class="project-links" style="margin-top:1.2rem">
+            <a href="https://github.com/yourusername/ml-pipeline-cli" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              GitHub
+            </a>
+            <a href="https://pypi.org/project/ml-pipeline-cli" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              PyPI
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-banner" style="background: linear-gradient(90deg, #9e7eb8, var(--accent2))"></div>
+        <div class="project-body">
+          <div class="project-title">DevBlog Engine</div>
+          <p class="project-desc">Lightweight Markdown-based static blog engine with syntax highlighting, RSS feeds, and one-click Vercel deployment. Powers this very portfolio.</p>
+          <div>
+            <span class="tag">Next.js</span>
+            <span class="tag">MDX</span>
+            <span class="tag">Tailwind</span>
+          </div>
+          <div class="project-links" style="margin-top:1.2rem">
+            <a href="https://github.com/yourusername/devblog-engine" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              GitHub
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-banner" style="background: linear-gradient(90deg, #b87e7e, var(--accent))"></div>
+        <div class="project-body">
+          <div class="project-title">API Rate Limiter</div>
+          <p class="project-desc">A Redis-backed, configurable rate-limiting middleware for Express and Fastify with sliding window, token bucket, and fixed window strategies.</p>
+          <div>
+            <span class="tag">Node.js</span>
+            <span class="tag">Redis</span>
+            <span class="tag">TypeScript</span>
+          </div>
+          <div class="project-links" style="margin-top:1.2rem">
+            <a href="https://github.com/yourusername/api-rate-limiter" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+              GitHub
+            </a>
+            <a href="https://www.npmjs.com/package/api-rate-limiter" target="_blank" class="project-link">
+              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              npm
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ BLOG ═══════════════ -->
+<div id="blog" class="tab-content">
+  <div class="section">
+    <p class="section-label">Thoughts & Writing</p>
+    <h2 class="section-title">Blog</h2>
+    <div class="divider"></div>
+
+    <div class="blog-card">
+      <div class="blog-meta">
+        <span class="cat">Architecture</span>
+        <span>February 12, 2025</span>
+        <span>8 min read</span>
+      </div>
+      <div class="blog-title">Why I Moved Away From Microservices (And What I Learned)</div>
+      <p class="blog-excerpt">After two years of running a microservice architecture in production, I hit a wall. Here's an honest retrospective on what worked, what didn't, and how a modular monolith changed everything.</p>
+      <div class="read-more">Read Post →</div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-meta">
+        <span class="cat">Python</span>
+        <span>January 3, 2025</span>
+        <span>5 min read</span>
+      </div>
+      <div class="blog-title">Async Python Isn't Magic — But It's Close</div>
+      <p class="blog-excerpt">A practical look at Python's asyncio library: when it helps, when it hurts, and how to avoid the common pitfalls that trip up even experienced developers.</p>
+      <div class="read-more">Read Post →</div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-meta">
+        <span class="cat">Career</span>
+        <span>December 10, 2024</span>
+        <span>6 min read</span>
+      </div>
+      <div class="blog-title">My First Year as a Software Engineer: Unfiltered</div>
+      <p class="blog-excerpt">The things nobody told me about working in tech — the good surprises, the hard lessons, and what I wish I'd known on day one.</p>
+      <div class="read-more">Read Post →</div>
+    </div>
+
+    <div class="blog-card">
+      <div class="blog-meta">
+        <span class="cat">Frontend</span>
+        <span>November 22, 2024</span>
+        <span>4 min read</span>
+      </div>
+      <div class="blog-title">CSS Grid Still Surprises Me</div>
+      <p class="blog-excerpt">Three layout patterns I keep reaching for in every project, and the subtle CSS Grid trick that makes them all possible without a single media query.</p>
+      <div class="read-more">Read Post →</div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>Built with ♥ · <a href="https://github.com/yourusername" style="color:var(--accent);text-decoration:none">GitHub</a> · <a href="https://linkedin.com/in/yourusername" style="color:var(--accent);text-decoration:none">LinkedIn</a></p>
+</footer>
+
+<script>
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
