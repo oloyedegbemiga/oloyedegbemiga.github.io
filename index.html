@@ -53,8 +53,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
       padding: 0 3rem;
-      height: 60px;
+      min-height: 60px;
     }
 
     .nav-logo {
@@ -68,6 +69,8 @@
       display: flex;
       gap: 0.2rem;
       list-style: none;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .nav-links li button {
@@ -108,6 +111,7 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 5rem 2rem;
+      width: 100%;
     }
 
     .section-label {
@@ -145,6 +149,7 @@
       padding: 0 2rem;
       max-width: 1100px;
       margin: 0 auto;
+      width: 100%;
     }
 
     .home-text .greeting {
@@ -212,10 +217,12 @@
 
     .home-photo {
       position: relative;
+      width: 100%;
     }
 
     .photo-frame {
       aspect-ratio: 4/5;
+      width: 100%;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 2px;
@@ -378,6 +385,7 @@
       display: flex;
       gap: 1.5rem;
       margin-bottom: 0.8rem;
+      flex-wrap: wrap;
     }
 
     .blog-meta span {
@@ -419,7 +427,7 @@
     /* ── PROJECTS ── */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
       gap: 1.5rem;
     }
 
@@ -573,19 +581,114 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav {
+        padding: 0.75rem 1.5rem;
+        align-items: flex-start;
+      }
+
+      .home-grid {
+        gap: 3rem;
+        padding: 3rem 1.5rem;
+        min-height: auto;
+      }
+    }
+
     @media (max-width: 700px) {
-      .home-grid { grid-template-columns: 1fr; min-height: auto; padding: 3rem 1.5rem; gap: 3rem; }
-      .home-photo { order: -1; max-width: 280px; margin: 0 auto; }
+      nav {
+        position: static;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .nav-links li {
+        flex: 1 1 calc(50% - 0.2rem);
+      }
+
+      .nav-links li button {
+        width: 100%;
+        text-align: center;
+        padding: 0.7rem 0.9rem;
+      }
+
+      .home-grid {
+        grid-template-columns: 1fr;
+        padding: 3rem 1.5rem;
+        gap: 2.5rem;
+      }
+
+      .home-text {
+        text-align: left;
+      }
+
+      .home-text .tagline {
+        max-width: none;
+      }
+
+      .home-photo {
+        order: -1;
+        max-width: 320px;
+        margin: 0 auto;
+      }
+
       .projects-grid { grid-template-columns: 1fr; }
-      nav { padding: 0 1rem; }
       .section { padding: 3rem 1.5rem; }
+      .card,
+      .blog-card,
+      .project-body { padding: 1.4rem; }
+      .photo-accent-box { right: -10px; bottom: -10px; }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        font-size: 13px;
+      }
+
+      .section,
+      .home-grid {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .nav-links li {
+        flex-basis: 100%;
+      }
+
+      .section-title {
+        margin-bottom: 1.75rem;
+      }
+
+      .btn-group {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .card-title,
+      .blog-title,
+      .project-title {
+        line-height: 1.3;
+      }
+
+      .card-date {
+        white-space: normal;
+      }
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <div class="nav-logo">Gbemi(beh-me) Oloyede</div>
+  <div class="nav-logo">Gbemi Oloyede</div>
   <ul class="nav-links">
     <li><button class="active" onclick="switchTab('home', this)">Home</button></li>
     <li><button onclick="switchTab('education', this)">Education</button></li>
