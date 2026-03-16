@@ -65,12 +65,45 @@
       letter-spacing: 0.05em;
     }
 
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .nav-toggle span,
+    .nav-toggle::before,
+    .nav-toggle::after {
+      content: '';
+      display: block;
+      width: 18px;
+      height: 1.5px;
+      background: currentColor;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .nav-toggle span + span {
+      margin-top: 5px;
+    }
+
     .nav-links {
       display: flex;
       gap: 0.2rem;
       list-style: none;
       flex-wrap: wrap;
       justify-content: flex-end;
+    }
+
+    .nav-links.open {
+      display: flex;
     }
 
     .nav-links li button {
@@ -600,19 +633,30 @@
 
     @media (max-width: 700px) {
       nav {
-        position: static;
-        flex-direction: column;
-        align-items: flex-start;
+        position: sticky;
+        top: 0;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
         padding: 1rem;
       }
 
+      .nav-toggle {
+        display: inline-flex;
+        flex-direction: column;
+      }
+
       .nav-links {
+        display: none;
         width: 100%;
         justify-content: flex-start;
+        margin-top: 0.75rem;
+        padding-top: 0.75rem;
+        border-top: 1px solid var(--border);
       }
 
       .nav-links li {
-        flex: 1 1 calc(50% - 0.2rem);
+        flex: 1 1 100%;
       }
 
       .nav-links li button {
@@ -693,7 +737,12 @@
 
 <nav>
   <div class="nav-logo">Gbemi Oloyede</div>
-  <ul class="nav-links">
+  <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle navigation" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><button class="active" onclick="switchTab('home', this)">Home</button></li>
     <li><button onclick="switchTab('education', this)">Education</button></li>
     <li><button onclick="switchTab('experience', this)">Experience</button></li>
@@ -714,9 +763,9 @@
         since my undergraduate years from 2018. My engineering interests include but are not limited to Robotics Software, Embedded Systems, Machine Learning.
       </p> -->
       <p class="tagline">
-        pronounced <span class="tagline-accent">beh-mee</span>, I am a software developer and robotics engineer and this is my portfolio! I am currently a graduate student at the University of Pennsylvania 
+        pronounced <span class="tagline-accent">beh-mee</span>, I am a software developer and robotics engineer. I am currently a graduate student at the University of Pennsylvania 
         working towards a masters in robotics under GRASP. I have worked in different roles both as a software developer and robotics engineer. 
-        My engineering interests include but are not limited to Robotics Software, Robot Learning, Embedded Systems, Mechatronics, Machine Learning.
+        My engineering and research interests include but are not limited to Robotics Software, Robot Learning, Embedded Systems, Mechatronics, Machine Learning.
       </p>
       <div class="btn-group">
         <a href="#" class="btn btn-primary" onclick="switchTab('projects', document.querySelectorAll('.nav-links button')[3]); return false;">
@@ -1233,12 +1282,37 @@
   <p>Built to last · <a href="https://github.com/oloyedegbemiga" style="color:var(--accent);text-decoration:none">GitHub</a> · <a href="https://linkedin.com/in/gbemi-ol" style="color:var(--accent);text-decoration:none">LinkedIn</a></p>
 </footer>
 <script>
+  const mobileMediaQuery = window.matchMedia('(max-width: 700px)');
+
+  function closeMenu() {
+    const navLinks = document.getElementById('nav-links');
+    const navToggle = document.querySelector('.nav-toggle');
+
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+  }
+
+  function toggleMenu() {
+    const navLinks = document.getElementById('nav-links');
+    const navToggle = document.querySelector('.nav-toggle');
+    const isOpen = navLinks.classList.toggle('open');
+
+    navToggle.setAttribute('aria-expanded', String(isOpen));
+  }
+
   function switchTab(tabId, btn) {
     document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
     document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
     document.getElementById(tabId).classList.add('active');
     if (btn) btn.classList.add('active');
+    if (mobileMediaQuery.matches) closeMenu();
   }
+
+  mobileMediaQuery.addEventListener('change', event => {
+    if (!event.matches) {
+      closeMenu();
+    }
+  });
 </script>
 </body>
 </html>
