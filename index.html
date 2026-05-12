@@ -3,29 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gbemi Oloyede</title>
+  <title>Gbemi Oloyede | Robotics Software Engineer</title>
+  <meta name="description" content="Portfolio of Gbemi Oloyede, a robotics software engineer focused on autonomous systems, ROS 2, embedded systems, and machine learning.">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      /* --bg: #0a0a0a; */
-      /* --bg: #818faa; */
-      --bg: rgba(52, 81, 122, 0.92);
-      /* --surface: #111111; */
-      /* --surface: rgba(167, 190, 221, 0.92); */
-      --surface: rgba(19, 30, 46, 0.92);
-      --surface2: #1a1a1a;
-      --border: #2a2a2a;
-      /* --border: rgba(19, 65, 129, 0.92); */
-      /* --border: #c8a96e; */
-      /* --surface: rgba(19, 65, 129, 0.92); */
-      --accent: #c8a96e;
-      /* --accent: #c8a96e; */
-      --accent2: #7eb8a4;
-      --text: #e8e4dc;
-      /* --text: #ecc273; */
-      /* --text: #050303; */
-      /* --muted: #777; */
-      --muted: #a79d9d;
+      --bg: #f7f5ef;
+      --surface: #ffffff;
+      --surface2: #eef1f4;
+      --border: #d8dce2;
+      --accent: #b88746;
+      --accent2: #2f7d75;
+      --text: #172033;
+      --muted: #596273;
       --radius: 4px;
     }
 
@@ -41,15 +31,14 @@
       min-height: 100vh;
     }
 
-    /* ── NAV ── */
     nav {
       position: sticky;
       top: 0;
       z-index: 100;
-      /* background: rgba(10,10,10,0.92); */
-      background: rgba(19, 30, 46, 0.92);
+      background: rgba(255, 255, 255, 0.86);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(23, 32, 51, 0.06);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -123,14 +112,13 @@
     .nav-links li button:hover,
     .nav-links li button.active {
       color: var(--accent);
-      background: rgba(200,169,110,0.08);
+      background: rgba(184, 135, 70, 0.11);
     }
 
     .nav-links li button.active {
       border-bottom: 2px solid var(--accent);
     }
 
-    /* ── TABS ── */
     .tab-content { display: none; }
     .tab-content.active { display: block; animation: fadeUp 0.4s ease; }
 
@@ -139,7 +127,6 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
-    /* ── SECTIONS ── */
     .section {
       max-width: 900px;
       margin: 0 auto;
@@ -172,7 +159,6 @@
       margin-bottom: 2.5rem;
     }
 
-    /* ── HOME ── */
     .home-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -238,11 +224,11 @@
 
     .btn-primary {
       background: var(--accent);
-      color: #0a0a0a;
+      color: #ffffff;
       border-color: var(--accent);
     }
 
-    .btn-primary:hover { background: #dbc086; }
+    .btn-primary:hover { background: #a77336; }
 
     .btn-outline {
       background: transparent;
@@ -270,7 +256,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 24px 60px rgba(8, 14, 24, 0.28);
+      box-shadow: 0 24px 60px rgba(23, 32, 51, 0.14);
     }
 
     .photo-frame::before {
@@ -281,8 +267,8 @@
         45deg,
         transparent,
         transparent 4px,
-        rgba(200,169,110,0.03) 4px,
-        rgba(200,169,110,0.03) 5px
+        rgba(184, 135, 70, 0.08) 4px,
+        rgba(184, 135, 70, 0.08) 5px
       );
       z-index: 1;
       pointer-events: none;
@@ -292,7 +278,7 @@
       content: '';
       position: absolute;
       inset: 14px;
-      border: 1px solid rgba(200,169,110,0.16);
+      border: 1px solid rgba(184, 135, 70, 0.22);
       border-radius: 12px;
       z-index: 1;
       pointer-events: none;
@@ -307,43 +293,26 @@
       filter: saturate(1.02) contrast(1.03);
     }
 
-    .photo-placeholder {
-      text-align: center;
-      color: var(--muted);
-    }
-
-    .photo-placeholder svg {
-      width: 64px;
-      height: 64px;
-      stroke: var(--border);
-      margin-bottom: 1rem;
-    }
-
-    .photo-placeholder p {
-      font-size: 11px;
-      letter-spacing: 0.1em;
-    }
-
     .photo-accent-box {
       position: absolute;
       bottom: -18px;
       right: -18px;
       width: 72%;
       height: 46%;
-      border: 1px solid rgba(200,169,110,0.24);
+      border: 1px solid rgba(184, 135, 70, 0.26);
       border-radius: 24px;
       z-index: -1;
-      background: linear-gradient(135deg, rgba(200,169,110,0.08), rgba(126,184,164,0.04));
+      background: linear-gradient(135deg, rgba(184, 135, 70, 0.13), rgba(47, 125, 117, 0.08));
     }
 
-    /* ── CARDS ── */
     .card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 2rem;
       margin-bottom: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
+      box-shadow: 0 14px 36px rgba(23, 32, 51, 0.06);
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
       position: relative;
       overflow: hidden;
     }
@@ -357,7 +326,11 @@
       transition: height 0.3s ease;
     }
 
-    .card:hover { border-color: var(--border); transform: translateY(-2px); }
+    .card:hover {
+      border-color: rgba(184, 135, 70, 0.38);
+      box-shadow: 0 18px 44px rgba(23, 32, 51, 0.1);
+      transform: translateY(-2px);
+    }
     .card:hover::before { height: 100%; }
 
     .card-header {
@@ -409,7 +382,7 @@
     }
 
     .card-bullets li::before {
-      content: '—';
+      content: '-';
       position: absolute;
       left: 0;
       color: var(--accent);
@@ -425,11 +398,11 @@
       padding: 3px 9px;
       border-radius: 2px;
       border: 1px solid var(--border);
-      color: var(--muted);
+      color: #425066;
+      background: #f9fafb;
       margin: 0.3rem 0.3rem 0 0;
     }
 
-    /* ── BLOG ── */
     .blog-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -437,11 +410,15 @@
       padding: 2rem;
       margin-bottom: 1.5rem;
       cursor: pointer;
-      transition: border-color 0.2s, transform 0.2s;
+      box-shadow: 0 14px 36px rgba(23, 32, 51, 0.06);
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
-    /* .blog-card:hover { border-color: var(--accent2); transform: translateX(4px); } */
-    .blog-card:hover { border-color: var(--accent); transform: translateX(4px); }
+    .blog-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 18px 44px rgba(23, 32, 51, 0.1);
+      transform: translateX(4px);
+    }
 
     .blog-meta {
       display: flex;
@@ -457,8 +434,7 @@
     }
 
     .blog-meta .cat {
-      /* color: var(--accent2); */
-      color: var(--accent);
+      color: var(--text);
     }
 
     .blog-title {
@@ -486,7 +462,6 @@
       cursor: pointer;
     }
 
-    /* ── PROJECTS ── */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
@@ -498,18 +473,22 @@
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: border-color 0.2s, transform 0.2s;
+      box-shadow: 0 14px 36px rgba(23, 32, 51, 0.06);
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
 
-    .project-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .project-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 18px 44px rgba(23, 32, 51, 0.1);
+      transform: translateY(-4px);
+    }
 
-    /* Preview image area */
     .project-preview {
       position: relative;
       width: 100%;
       height: 200px;
       overflow: hidden;
-      background: var(--surface2);
+      background: #e4e8ed;
     }
 
     .project-preview img {
@@ -524,42 +503,6 @@
       transform: scale(1.04);
     }
 
-    /* Camera icon placeholder */
-    .project-preview-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      color: var(--border);
-      background: var(--surface2);
-      background-image: repeating-linear-gradient(
-        45deg,
-        transparent,
-        transparent 6px,
-        rgba(255,255,255,0.015) 6px,
-        rgba(255,255,255,0.015) 7px
-      );
-    }
-
-    .project-preview-placeholder svg {
-      width: 40px;
-      height: 40px;
-      stroke: var(--border);
-      fill: none;
-    }
-
-    .project-preview-placeholder span {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      opacity: 0.5;
-    }
-
-    /* Accent stripe — still shown below the image */
     .project-stripe {
       height: 3px;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
@@ -610,7 +553,6 @@
       fill: none;
     }
 
-    /* ── SKILLS ── */
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
@@ -629,10 +571,12 @@
       transition: border-color 0.2s, color 0.2s;
     }
 
-    /* .skill-pill:hover { border-color: var(--accent2); color: var(--accent2); } */
-    .skill-pill:hover { border-color: var(--accent); color: var(--accent); }
+    .skill-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: #ffffff;
+    }
 
-    /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
       text-align: center;
@@ -642,7 +586,6 @@
       letter-spacing: 0.05em;
     }
 
-    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav {
         padding: 0.75rem 1.5rem;
@@ -777,26 +720,13 @@
   </ul>
 </nav>
 
-<!-- ═══════════════ HOME ═══════════════ -->
 <div id="home" class="tab-content active">
   <div class="home-grid">
     <div class="home-text">
-      <p class="greeting">— Welcome —</p>
+      <p class="greeting">- Welcome -</p>
       <h1>I'm <em>Gbemi<br>Oloyede</em></h1>
-      <!-- <p class="tagline">
-        pronounced beh-me, I am Software developer and robotics engineer and this is my portfolio! I am currently a graduate student at the University of Pennsylvania 
-        working towards a masters in robotics under GRASP. I have worked in different roles both as a software developer and robotics engineer, 
-        since my undergraduate years from 2018. My engineering interests include but are not limited to Robotics Software, Embedded Systems, Machine Learning.
-      </p> -->
-      <!-- <p class="tagline">
-        pronounced <span class="tagline-accent">beh-mee</span>, I am a software developer and robotics engineer. I am currently a graduate student at the University of Pennsylvania 
-        working towards a masters in robotics under GRASP. I have worked in different roles both as a software developer and robotics engineer. 
-        My engineering and research interests include but are not limited to Robotics Software, Robot Learning, Embedded Systems, Mechatronics, Machine Learning.
-      </p> -->
       <p class="tagline">
-        pronounced <span class="tagline-accent">beh-mee</span>, I am a software developer and robotics engineer who is currently a graduate student at the University of Pennsylvania 
-        working towards a masters in robotics under GRASP. I have worked in different roles both as a software developer and robotics engineer. 
-        My engineering and research interests include but are not limited to Robotics Software, Robot Learning, Embedded Systems, Mechatronics, Machine Learning.
+        Pronounced <span class="tagline-accent">beh-mee</span>, I am a robotics software engineer focused on autonomous systems, ROS 2, embedded control, and machine learning. I am currently pursuing an M.S. in Robotics at the University of Pennsylvania.
       </p>
 
 
@@ -804,8 +734,7 @@
         <a href="#" class="btn btn-primary" onclick="switchTab('projects', document.querySelectorAll('.nav-links button')[3]); return false;">
           View Projects
         </a>
-        <!-- <a href="/cdn-cgi/l/email-protection#b5ccdac0f5d0d8d4dcd99bd6dad8" class="btn btn-outline">Get in Touch</a> -->
-        <!-- <a href="/cdn-cgi/l/email-protection#b5ccdac0f5d0d8d4dcd99bd6dad8" class="btn btn-outline">Get in Touch</a> -->
+        <a href="Gbemi_Oloyede_Resume.pdf" target="_blank" class="btn btn-outline">Resume</a>
         <a href="mailto:ogcoder99@gmail.com" class="btn btn-outline">Get in Touch</a>
 
       </div>
@@ -813,22 +742,13 @@
 
     <div class="home-photo">
       <div class="photo-frame">
-        <!-- Replace the div below with an <img src="your-photo.jpg" alt="Your Name" style="width:100%;height:100%;object-fit:cover"> -->
-        
         <img src="images/profile3.jpeg" alt="Gbemi Oloyede" class="profile-photo">
-        <!-- <div class="photo-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-          </svg>
-          <p>Your Photo Here</p>
-        </div> -->
       </div>
       <div class="photo-accent-box"></div>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════ EDUCATION ═══════════════ -->
 <div id="education" class="tab-content">
   <div class="section">
     <p class="section-label">Academic Background</p>
@@ -841,7 +761,7 @@
           <div class="card-title">University of Pennsylvania</div>
           <div class="card-subtitle">M.S.E Robotics</div>
         </div>
-        <div class="card-date">2024 — 2026</div>
+        <div class="card-date">2024 - 2026</div>
       </div>
       <div class="card-body">
         Design of Mechatronic Systems, Machine Perception, Product Design, Advanced Robotics, Applied Machine Learning
@@ -860,7 +780,7 @@
           <div class="card-title">Rochester Institute of Technology</div>
           <div class="card-subtitle">B.S Computer Science</div>
         </div>
-        <div class="card-date">2017 — 2022</div>
+        <div class="card-date">2017 - 2022</div>
       </div>
       <div class="card-body">
         Graduated Magna Cum Laude. During my degree, I had a focus on robotics, machine learning, computer system architecture, and Embedded Systems
@@ -892,20 +812,9 @@
       </div>
       <div class="card-body">University of California, Irvine.</div>
     </div>
-    <!-- <div class="card">
-      <div class="card-header">
-        <div>
-          <div class="card-title">AWS Certified Developer</div>
-          <div class="card-subtitle">Coursera</div>
-        </div>
-        <div class="card-date">2023</div>
-      </div>
-      <div class="card-body">Associate-level certification covering cloud architecture, deployment, and best practices.</div>
-    </div> -->
   </div>
 </div>
 
-<!-- ═══════════════ EXPERIENCE ═══════════════ -->
 <div id="experience" class="tab-content">
   <div class="section">
     <p class="section-label">Professional Journey</p>
@@ -918,7 +827,7 @@
           <div class="card-title">Research Assistant</div>
           <div class="card-subtitle">Modlab, University of Pennsylvania</div>
         </div>
-        <div class="card-date">Sep 2024 — Present</div>
+        <div class="card-date">Sep 2024 - Present</div>
       </div>
       <div class="card-body">
         <ul class="card-bullets">
@@ -941,7 +850,7 @@
           <div class="card-title">Backend developer Intern</div>
           <div class="card-subtitle">Konga</div>
         </div>
-        <div class="card-date">Aug 2023 — Aug 2024</div>
+        <div class="card-date">Aug 2023 - Aug 2024</div>
       </div>
       <div class="card-body">
         <ul class="card-bullets">
@@ -959,7 +868,6 @@
         <span class="tag">Elasticsearch</span>
         <span class="tag">Docker</span>
         <span class="tag">PostgreSQL</span>
-        <!-- <span class="skill-pill">PostgreSQL</span> -->
       </div>
     </div>
 
@@ -971,11 +879,11 @@
           <div class="card-title">Robotics Application Developer Intern</div>
           <div class="card-subtitle">Golisano Institute of Sustainability</div>
         </div>
-        <div class="card-date">Jan 2022 — May 2022</div>
+        <div class="card-date">Jan 2022 - May 2022</div>
       </div>
       <div class="card-body">
         <ul class="card-bullets">
-            <li>Configured an NVIDIA Jetson Nano (2 GB) with a real-time Linux kernel for optimized ROS–UR10e communication. </li>
+            <li>Configured an NVIDIA Jetson Nano (2 GB) with a real-time Linux kernel for optimized ROS-UR10e communication. </li>
             <li>Established ROS network communication between the workstation and UR10e robot over Ethernet for reliable command streaming. </li>
             <li>Developed and deployed a pick-and-place shelving application for the UR10e, 
                 integrating Isaac Sim for testing and securing project funding through prototype demonstration. </li>
@@ -999,7 +907,7 @@
           <div class="card-title">Software Engineer Intern</div>
           <div class="card-subtitle">Neustar inc</div>
         </div>
-        <div class="card-date">Jan 2021 — Jul 2021</div>
+        <div class="card-date">Jan 2021 - Jul 2021</div>
       </div>
       <div class="card-body">
         <ul class="card-bullets">
@@ -1024,17 +932,12 @@
           <div class="card-title">Undergraduate Research Assistant</div>
           <div class="card-subtitle">Machine Intelligence Lab, RIT</div>
         </div>
-        <div class="card-date">May 2018 — Aug 2018</div>
+        <div class="card-date">May 2018 - Aug 2018</div>
       </div>
       <div class="card-body">
         <ul class="card-bullets">
-            <!-- <li>Built and maintained microservices handling 5M+ daily requests</li>
-            <li>Led migration from monolith to event-driven architecture, reducing latency by 40%</li>
-            <li>Mentored two junior engineers and contributed to internal developer tooling</li> -->
-
             <li>Wrote code to interface with robots to run experiments using Python, C++, and ROS</li>
             <li>Collected data using for the purpose of training the robots</li>
-            <!-- <li>Mentored two junior engineers and contributed to internal developer tooling</li> -->
         </ul>
       </div>
       <div>
@@ -1045,7 +948,6 @@
       </div>
     </div>
 
-    <!-- <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; margin: 3rem 0 1.2rem; color:var(--text)">Skills</h3> -->
     <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; margin: 3rem 0 1.2rem; color:var(--text)">Skills</h3>
     <div class="skills-grid">
       <span class="skill-pill">JavaScript</span>
@@ -1063,7 +965,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ PROJECTS ═══════════════ -->
 <div id="projects" class="tab-content">
   <div class="section">
     <p class="section-label">What I've Built</p>
@@ -1072,25 +973,14 @@
 
     <div class="projects-grid">
 
-      <!-- PROJECT 1 -->
       <div class="project-card">
         <div class="project-preview">
-          <!-- To add a screenshot: replace the placeholder div below with:
-               <img src="screenshots/project-alpha.png" alt="Project Alpha screenshot"> -->
-        <img src="images/LIBOT.jpeg" alt="Project Alpha screenshot">
-          <!-- <div class="project-preview-placeholder">
-            <svg viewBox="0 0 24 24" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
-              <circle cx="12" cy="13" r="4"/>
-            </svg>
-            <span>Add Screenshot</span>
-          </div> -->
+          <img src="images/LIBOT.jpeg" alt="Autonomous robot platform for the SICK LiDAR Challenge">
         </div>
         <div class="project-stripe"></div>
         <div class="project-body">
           <div class="project-title">SICK LiDAR Challenge</div>
-          <p class="project-desc">Collaborated on building an autonomous robotic system capable of LiDAR-based navigation, shelf label recognition, and state-based decision-making.
-            Developed components of the motor control and ROS 2 integration stack, along with a user interface for processing returns, monitoring stock, and issuing direct override commands when needed.</p>
+          <p class="project-desc">Collaborated on an autonomous robotic system for LiDAR-based navigation, shelf label recognition, and state-based decision-making. Developed motor control and ROS 2 integration components, plus an operator interface for processing returns, monitoring stock, and issuing direct override commands.</p>
           <div>
             <span class="tag">LiDAR</span>
             <span class="tag">Node.js</span>
@@ -1101,94 +991,42 @@
             <span class="tag">Flask</span>
           </div>
           <div class="project-links" style="margin-top:1.2rem">
-            <!-- <a href="https://github.com/yourusername/project-alpha" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-              GitHub
-            </a> -->
             <a href="https://github.com/virmani11kartik/flex_bot" target="_blank" class="project-link">
               <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               GitHub
             </a>
-            <!-- <a href="https://project-alpha.demo.com" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              Live Demo
-            </a> -->
           </div>
         </div>
       </div>
 
-      <!-- PROJECT 2 -->
-
       <div class="project-card">
         <div class="project-preview">
-        <img src="images/rl-drone.gif" alt="Project Alpha screenshot">
-          <!-- <div class="project-preview-placeholder">
-            <svg viewBox="0 0 24 24" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
-              <circle cx="12" cy="13" r="4"/>
-            </svg>
-            <span>Add Screenshot</span>
-          </div> -->
+          <img src="images/rl-drone.gif" alt="Reinforcement learning drone racing simulation">
         </div>
         <div class="project-stripe" style="background: linear-gradient(90deg, #b87e7e, var(--accent))"></div>
         <div class="project-body">
           <div class="project-title">Autonomous Drone Racing</div>
-          <p class="project-desc">Developed a PPO-based reinforcement learning pipeline to train a drone racing agent in simulation
-            and deployed the learned policy on a Crazyflie 2.0. Designed custom observation spaces, reward shaping, curriculum learning,
-            and reset strategies to achieve fast, stable gate-to-gate flight.</p>
+          <p class="project-desc">Developed a PPO-based reinforcement learning pipeline for autonomous drone racing and deployed the learned policy on a Crazyflie 2.0. Designed custom observation spaces, reward shaping, curriculum learning, and reset strategies to improve stable gate-to-gate flight.</p>
           <div>
             <span class="tag">RL</span>
             <span class="tag">Python</span>
-            <!-- <span class="tag">TypeScript</span> -->
-          </div>
-          <div class="project-links" style="margin-top:1.2rem">
-            <!-- <a href="https://github.com/yourusername/api-rate-limiter" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-              GitHub
-            </a> -->
-            <a href="https://github.com/yourusername/api-rate-limiter" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-              GitHub
-            </a>
-            <!-- <a href="https://www.npmjs.com/package/api-rate-limiter" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              npm
-            </a> -->
           </div>
         </div>
       </div>
 
-
-
-      <!-- PROJECT 3 -->
       <div class="project-card">
         <div class="project-preview">
-        <img src="images/advanced.gif" alt="Project Alpha screenshot">
-          <!-- <div class="project-preview-placeholder">
-            <svg viewBox="0 0 24 24" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
-              <circle cx="12" cy="13" r="4"/>
-            </svg>
-            <span>Add Screenshot</span>
-          </div> -->
+          <img src="images/advanced.gif" alt="GPS-denied autonomous drone navigation demo">
         </div>
         <div class="project-stripe" style="background: linear-gradient(90deg, #9e7eb8, var(--accent2))"></div>
         <div class="project-body">
           <div class="project-title">GPS-Denied Autonomous Drone System</div>
-          <p class="project-desc">Designed and implemented a complete VIO-based autonomy stack for a Crazyflie 2.0, enabling fully autonomous navigation
-            without GPS. Integrated geometric feedback control, A*-based obstacle-aware path planning, smooth 3D trajectory generation, and 
-            visual-inertial odometry for real-time state estimation</p>
+          <p class="project-desc">Designed and implemented a VIO-based autonomy stack for a Crazyflie 2.0, enabling GPS-denied navigation. Integrated geometric feedback control, A*-based obstacle-aware path planning, smooth 3D trajectory generation, and visual-inertial odometry for real-time state estimation.</p>
           <div>
             <span class="tag">Python</span>
             <span class="tag">VIO</span>
-            <!-- <span class="tag">Tailwind</span> -->
           </div>
           <div class="project-links" style="margin-top:1.2rem">
-            <!-- <a href="https://github.com/yourusername/devblog-engine" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-              GitHub
-            </a> -->
-
             <a href="https://github.com/oloyedegbemiga/vio-drone" target="_blank" class="project-link">
               <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               GitHub
@@ -1200,32 +1038,14 @@
         </div>
       </div>
 
-      <!-- PROJECT 4 -->
       <div class="project-card">
         <div class="project-preview">
-        <img src="images/BULMA.jpeg" alt="Project Alpha screenshot">
-          <!-- <div class="project-preview-placeholder">
-            <svg viewBox="0 0 24 24" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
-              <circle cx="12" cy="13" r="4"/>
-            </svg>
-            <span>Add Screenshot</span>
-          </div> -->
+          <img src="images/BULMA.jpeg" alt="BULMA autonomous robot with custom chassis and sensors">
         </div>
         <div class="project-stripe" style="background: linear-gradient(90deg, var(--accent2), #4a8a9e)"></div>
         <div class="project-body">
           <div class="project-title">BULMA</div>
-          <!-- <p class="project-desc">As part of a collaborative team, I helped design and build an autonomous robot from scratch. 
-            Our work spanned multiple disciplines, from hardware design to software development. 
-            The process began with creating 3D models of the robot’s components, followed by precision laser cutting for fabrication. 
-            We then assembled and soldered the electrical circuits and integrated various components, including Time-of-Flight (ToF) sensors for obstacle and wall detection.</p>
-          <div> -->
-
-          <p class="project-desc">This project focused on building an autonomous robot entirely from scratch as part of a collaborative team. 
-        From the beginning, we were responsible for every aspect of the system—mechanical design, electronics, and sensing.
-        We designed custom parts in CAD and fabricated them using laser cutting, then assembled the robot and wired its electronics by hand. 
-        My work focused on integrating Time-of-Flight (ToF) sensors, which allowed the robot to detect obstacles and follow walls in its environment,
-        building the web interface for monitoring sensor data and issuing direct override commands, developing I2C communication protocols, and a PID controller.</p>
+          <p class="project-desc">Built a first-place autonomous robot from scratch with a collaborative team, covering mechanical design, electronics, sensing, and controls. Integrated Time-of-Flight sensors for obstacle detection and wall following, developed I2C communication protocols and a PID controller, and built a web interface for sensor monitoring and direct override commands.</p>
         <div>
             <span class="tag">C/C++</span>
             <span class="tag">ToF</span>
@@ -1235,18 +1055,10 @@
             <span class="tag">First Place Prize</span>
           </div>
           <div class="project-links" style="margin-top:1.2rem">
-            <!-- <a href="https://github.com/yourusername/ml-pipeline-cli" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-              GitHub
-            </a> -->
             <a href="https://github.com/oloyedegbemiga/510-robo-car" target="_blank" class="project-link">
               <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
               GitHub
             </a>
-            <!-- <a href="https://pypi.org/project/ml-pipeline-cli" target="_blank" class="project-link">
-              <svg viewBox="0 0 24 24" stroke-width="1.8"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-              PyPI
-            </a> -->
           </div>
         </div>
       </div>
@@ -1255,7 +1067,6 @@
   </div>
 </div>
 
-<!-- ═══════════════ BLOG ═══════════════ -->
 <div id="blog" class="tab-content">
   <div class="section">
     <p class="section-label">Thoughts & Writing</p>
@@ -1270,59 +1081,14 @@
       </div>
       <div class="blog-title">Coming Soon</div>
       <p class="blog-excerpt">This page will be for blogs</p>
-      <div class="read-more">Read Post →</div>
+      <div class="read-more">Read Post -></div>
     </div>
-
-    <!-- <div class="blog-card">
-      <div class="blog-meta">
-        <span class="cat">Architecture</span>
-        <span>February 12, 2025</span>
-        <span>8 min read</span>
-      </div>
-      <div class="blog-title">Why I Moved Away From Microservices (And What I Learned)</div>
-      <p class="blog-excerpt">After two years of running a microservice architecture in production, I hit a wall. Here's an honest retrospective on what worked, what didn't, and how a modular monolith changed everything.</p>
-      <div class="read-more">Read Post →</div>
-    </div>
-
-    <div class="blog-card">
-      <div class="blog-meta">
-        <span class="cat">Python</span>
-        <span>January 3, 2025</span>
-        <span>5 min read</span>
-      </div>
-      <div class="blog-title">Async Python Isn't Magic — But It's Close</div>
-      <p class="blog-excerpt">A practical look at Python's asyncio library: when it helps, when it hurts, and how to avoid the common pitfalls that trip up even experienced developers.</p>
-      <div class="read-more">Read Post →</div>
-    </div>
-
-    <div class="blog-card">
-      <div class="blog-meta">
-        <span class="cat">Career</span>
-        <span>December 10, 2024</span>
-        <span>6 min read</span>
-      </div>
-      <div class="blog-title">My First Year as a Software Engineer: Unfiltered</div>
-      <p class="blog-excerpt">The things nobody told me about working in tech — the good surprises, the hard lessons, and what I wish I'd known on day one.</p>
-      <div class="read-more">Read Post →</div>
-    </div>
-
-    <div class="blog-card">
-      <div class="blog-meta">
-        <span class="cat">Frontend</span>
-        <span>November 22, 2024</span>
-        <span>4 min read</span>
-      </div>
-      <div class="blog-title">CSS Grid Still Surprises Me</div>
-      <p class="blog-excerpt">Three layout patterns I keep reaching for in every project, and the subtle CSS Grid trick that makes them all possible without a single media query.</p>
-      <div class="read-more">Read Post →</div>
-    </div> -->
 
   </div>
 </div>
 
 <footer>
-  <!-- <p>Built with ♥ · <a href="https://github.com/yourusername" style="color:var(--accent);text-decoration:none">GitHub</a> · <a href="https://linkedin.com/in/yourusername" style="color:var(--accent);text-decoration:none">LinkedIn</a></p> -->
-  <p>Built to last · <a href="https://github.com/oloyedegbemiga" style="color:var(--accent);text-decoration:none">GitHub</a> · <a href="https://linkedin.com/in/gbemi-ol" style="color:var(--accent);text-decoration:none">LinkedIn</a></p>
+  <p>Built to last | <a href="https://github.com/oloyedegbemiga" style="color:var(--accent);text-decoration:none">GitHub</a> | <a href="https://linkedin.com/in/gbemi-ol" style="color:var(--accent);text-decoration:none">LinkedIn</a></p>
 </footer>
 <script>
   const mobileMediaQuery = window.matchMedia('(max-width: 700px)');
