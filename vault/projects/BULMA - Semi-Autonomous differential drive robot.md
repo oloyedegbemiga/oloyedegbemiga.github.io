@@ -68,13 +68,6 @@ Designed and hand-built a custom chassis using a combination of:
 
 The chassis accommodated the differential-drive system, onboard electronics, and sensors.
 
-[!example] Mechanical Design  
-**Suggested image:** CAD model, chassis assembly, or fabrication photo.
-
-  
-
-![[robot-chassis-design.png]]
-
 **Key Technical Areas**
 
 - **Embedded Systems:** ESP32-S2 firmware and Wi-Fi communication.
