@@ -1,6 +1,7 @@
 ---
 title: Zero to One - Notes on Startups, Or How to Build the Future
 summary: Thesis of this book is that true value comes from creating something entirely new. 
+date: 2023-01-23
 ---
 **author**: Peter Thiel and Blake Masters
 

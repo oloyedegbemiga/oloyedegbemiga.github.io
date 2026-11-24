@@ -1,7 +1,7 @@
 ---
-title: The Hard Thing About Hard Things: Building a Business When There Are No Easy Answers.
+title: The Hard Thing About Hard Things - Building a Business When There Are No Easy Answers.
 summary: A reality check for aspiring entrepreneurs.
-date: 2023-01-31
+date: 2023-02-31
 ---
 **author**: Ben Horowitz
 
