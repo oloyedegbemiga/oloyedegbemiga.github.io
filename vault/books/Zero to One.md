@@ -1,8 +1,8 @@
 ---
 title: Zero to One - Notes on Startups, Or How to Build the Future
 summary: Thesis of this book is that true value comes from creating something entirely new. 
-author: Peter Thiel and Blake Masters
 ---
+**author**: Peter Thiel and Blake Masters
 
 ## There are different kinds of people:
 1. Definte Optimist: Believe the future will be better than the present if they plan and work to build it.
