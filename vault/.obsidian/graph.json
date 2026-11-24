@@ -1,0 +1,9 @@
+{
+  "colorGroups": [
+    { "query": "path:projects", "color": { "a": 1, "rgb": 14995862 } },
+    { "query": "path:skills", "color": { "a": 1, "rgb": 3355443 } },
+    { "query": "path:notes", "color": { "a": 1, "rgb": 9474192 } }
+  ],
+  "showAttachments": false,
+  "hideUnresolved": true
+}

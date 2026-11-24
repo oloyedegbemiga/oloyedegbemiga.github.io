@@ -1,0 +1,18 @@
+{
+  "name": "Gbemi Oloyede",
+  "title": "Gbemi Oloyede — Robotics Engineer",
+  "description": "Robotics portfolio: mobile robots, manipulators and the software that drives them.",
+  "url": "",
+  "socialImage": "",
+  "links": {
+    "GitHub": "https://github.com/oloyedegbemiga",
+    "LinkedIn": "https://www.linkedin.com/in/gbemi-ol",
+    "Email": "mailto:bemi_in_touch@outlook.com"
+  },
+  "sections": [
+    { "folder": "projects", "title": "Projects", "command": "project library", "intro": "Things I've designed, built and broken." },
+    { "folder": "skills", "title": "Skills", "command": "what I work with", "intro": "Each skill links to the projects where I used it." },
+    { "folder": "notes", "title": "Notes", "command": "build logs", "intro": "Build logs, write-ups and things I learned the hard way." },
+    { "folder": "books", "title": "books", "command": "books that influenced my thinking. " }
+  ]
+}
