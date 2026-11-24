@@ -7,8 +7,7 @@ skills:
   - "[[PCB Design]]"
 ---
 
-skills: [[CAD]], [[ROS 2]], [[Computer Vision]]
-code: [Libot](https://github.com/virmani11kartik/flex_bot.git)
+notes: [[BMI088 - Hardware Connection.md]], [[Building a Voltmeter Using Voltage Divider and ADC.md]], [[Gyroscope.md]], [[IMU Notes.md]], [[Accelerometer.md]], [[6-DoF IMU.md]]
 
 The first step in any [[PCB Design|PCB design]] is figuring out what functions we need it to perform. In the case of a model rocket, we want our flight computer to monitor the rocket’s orientation and flight state. We also want our rocket to return safely and survive its landing using a parachute recovery system. Ideally, the parachute should be deployed at maximum altitude (apogee) to allow for a controlled descent.
 
