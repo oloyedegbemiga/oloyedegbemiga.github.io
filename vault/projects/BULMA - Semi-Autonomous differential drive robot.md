@@ -20,8 +20,8 @@ The robot used an **ESP32-S2 microcontroller** for control and Wi-Fi communicati
 
 Time-of-Flight (ToF) sensors provided additional environmental sensing for wall-following and obstacle detection.
 
-[!info] Robot Overview  
-**Image:** Full view of the assembled robot.
+**Robot Overview**  
+Full view of the assembled robot.
 
   
 
